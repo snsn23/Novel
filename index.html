@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="./stylesheets/layout.css">
+	<link href="https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css" rel="stylesheet" />
+	<script src="./javascripts/jquery-2.1.4.min.js"></script>
+	<title>制作</title>
+</head>
+
+<body>
+	<div id="canvas">
+		<div id="serif"></div>
+	</div>
+
+	<script src="/js/jquery.min.js"></script>
+	<script>
+	// ここにシナリオを記入
+	var SCENARIO = [
+		{com:"BG", val:"url(/image/sky001.jpg)"}
+		, {com:"S",  val:"吾輩は🐈ではない😹"}
+		, {com:"S",  val:"名前はある"}
+		, {com:"BG", val:"url(/image/sky002.jpg)"}
+		, {com:"S",  val:"どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた(´；ω；`)ｳｯ…事だけは記憶している"}
+		, {com:"S",  val:"吾輩はここで初めて人類は思い出した。しかもあとで聞くとそれは書生という人間中で一番獰悪(どうあく)な種族であったそうだ。この書生というのは時々我々を捕つかまえて煮にて食うという話である。"}
+		, {com:"S",  val:"(´・ω・`)"}
+		, {com:"S",  val:"( *´艸｀)"}
+		, {com:"S",  val:"( ^)o(^ )"}
+		, {com:"S",  val:"(#^.^#)"}
+		, {com:"S",  val:"('◇')ゞ"}
+		, {com:"S",  val:"((+_+))"}
+		, {com:"S",  val:"($・・)/~~~"}
+		, {com:"S",  val:"(-_-)/~~~ピシー!ピシー!"}
+		, {com:"S",  val:"(; ･`д･´)"}
+		, {com:"S",  val:"(;´∀｀)"}
+		, {com:"S",  val:"(●´ω｀●)"}
+		, {com:"S",  val:"Σ(･ω･ﾉ)ﾉ！"}
+		, {com:"S",  val:"（●＾o＾●）"}
+		, {com:"S",  val:"＼(゜ロ＼)ココハドコ? (／ロ゜)／アタシハダアレ?"}
+		, {com:"S",  val:"(´◉◞౪◟◉)(´◉◞౪◟◉)(´◉◞౪◟◉)(´◉◞౪◟◉)(´◉◞౪◟◉)(´◉◞౪◟◉)(´◉◞౪◟◉)"}
+	];
+
+	var Novel = {
+		cursor: 0
+		, max: 0
+		, init: function(){
+			this.max = SCENARIO.length;
+			this.play();
+		}
+		, play: function(){
+			if( this.cursor >= this.max ){
+				return(false);
+			}
+
+			switch(SCENARIO[this.cursor].com){
+				// セリフ再生
+				case "S":
+				$("#serif").html(SCENARIO[this.cursor].val);
+				this.cursor++;
+				break;
+
+				// 背景変更
+				case "BG":
+				$("#canvas").css("background-image", SCENARIO[this.cursor].val);
+				this.cursor++;
+				Novel.play();
+				break;
+
+				// case "":
+				//   break;
+
+				default:
+				break;
+			}
+		}
+	};
+
+	$(document).ready(function(){
+		Novel.init();
+
+		$("#serif")
+		.on("click", function(){
+			Novel.play();
+		});
+	});
+	</script>
+</body>
+
+
+</html>
