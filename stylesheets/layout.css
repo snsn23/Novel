@@ -1,0 +1,23 @@
+#canvas{
+	width: 1080px;
+	height: 480px;
+	border: 1px solid gray;
+
+  /* 画像をタイル状に繰り返し表示しない */
+    background-repeat: no-repeat;
+  /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
+  background-size: cover;
+}
+#serif{
+	position: relative;
+	top: 400px;
+	left: 400px;
+	width: 800px;
+	height: 250px;
+	border: 1px solid blue;
+	background-color: rgba(255, 255, 255, 0.75);
+	padding: 10px;
+	user-select: none;
+	font-family: "Rounded Mplus 1c";
+	font-size: 18pt;
+}

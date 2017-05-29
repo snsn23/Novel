@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ja">
 
 
@@ -11,35 +11,32 @@
 </head>
 
 <body>
+    <audio id="Sound01" src="BGM/k6.mp3" autoplay></audio>
 	<div id="canvas">
 		<div id="serif"></div>
+        <img id="ilust"></img>
+        <img id="ilust2"></img>
 	</div>
-
-	<script src="/js/jquery.min.js"></script>
+    <audio src="BGM/k6.mp3" autoplay></audio>
+	<script src="/javascripts/jquery.min.js"></script>
 	<script>
 	// ここにシナリオを記入
-	var SCENARIO = [
-		{com:"BG", val:"url(/image/sky001.jpg)"}
-		, {com:"S",  val:"吾輩は🐈ではない😹"}
-		, {com:"S",  val:"名前はある"}
+        var SCENARIO = [
+          { com: "BGM", val: "Sound01" }
 		, {com:"BG", val:"url(/image/sky002.jpg)"}
-		, {com:"S",  val:"どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた(´；ω；`)ｳｯ…事だけは記憶している"}
-		, {com:"S",  val:"吾輩はここで初めて人類は思い出した。しかもあとで聞くとそれは書生という人間中で一番獰悪(どうあく)な種族であったそうだ。この書生というのは時々我々を捕つかまえて煮にて食うという話である。"}
-		, {com:"S",  val:"(´・ω・`)"}
-		, {com:"S",  val:"( *´艸｀)"}
-		, {com:"S",  val:"( ^)o(^ )"}
-		, {com:"S",  val:"(#^.^#)"}
-		, {com:"S",  val:"('◇')ゞ"}
-		, {com:"S",  val:"((+_+))"}
-		, {com:"S",  val:"($・・)/~~~"}
-		, {com:"S",  val:"(-_-)/~~~ピシー!ピシー!"}
-		, {com:"S",  val:"(; ･`д･´)"}
-		, {com:"S",  val:"(;´∀｀)"}
-		, {com:"S",  val:"(●´ω｀●)"}
-		, {com:"S",  val:"Σ(･ω･ﾉ)ﾉ！"}
-		, {com:"S",  val:"（●＾o＾●）"}
-		, {com:"S",  val:"＼(゜ロ＼)ココハドコ? (／ロ゜)／アタシハダアレ?"}
-		, {com:"S",  val:"(´◉◞౪◟◉)(´◉◞౪◟◉)(´◉◞౪◟◉)(´◉◞౪◟◉)(´◉◞౪◟◉)(´◉◞౪◟◉)(´◉◞౪◟◉)"}
+		, {com: "S", val: "路線バス" }
+        , { com: "I1", val: "" }
+        , { com: "I3", val: "" }
+		, {com:"S",  val:"今日は会社の飲み会で遅くまで飲んでしまった。"}
+		, {com:"BG", val:"url(/image/sky002.jpg)"}
+		, {com:"S",  val:"明日も大事な案件があるので早く帰って準備をしないといけなかった。"}
+		, {com:"S",  val:"幸い路線バスの最終便が出ており、私は路線バスに乗って帰ることにした。"}
+		, {com:"S",  val:"すこし酔っていたせいかうつらうつらとしていると、降車ボタンが押された音にはっと目を覚ました。"}
+		, {com:"S",  val:"次は私の降りる停留所。いかんいかん乗り過ごしていたら大変な所だった。"}
+		, { com: "S", val: "私は降りると、ふと「誰もいないのに路線バスの運転手は大変だなぁ」と思った。" }
+        , { com: "I2", val: "" }
+		, {com:"S",  val:"少し歩いたところで私は一目散に家に駆けこんだ。"}
+
 	];
 
 	var Novel = {
@@ -68,8 +65,30 @@
 				Novel.play();
 				break;
 
-				// case "":
-				//   break;
+			    // BGM再生
+			    case "BGM":
+			    document.getElementById(SCENARIO[this.cursor].val).play();
+			    this.cursor++;
+			    break;
+
+			    case "I1":
+			        $("#ilust").attr("src", './image/bass01.png', SCENARIO[this.cursor].val);
+			        $("#ilust").offset({ top: 150, left: 850 });
+			        this.cursor++;
+			        break;
+
+			    case "I2":
+			        $("#ilust").attr("src", './image/bass02.png', SCENARIO[this.cursor].val);
+			        $("#ilust").offset({ top: 150, left: 850 });
+			        this.cursor++;
+			        break;
+
+
+			    case "I3":
+			        $("#ilust2").attr("src", './image/human01.png', SCENARIO[this.cursor].val);
+			        $("#ilust2").offset({ top: 175, left: 550 });
+			        this.cursor++;
+			        break;
 
 				default:
 				break;
@@ -86,7 +105,4 @@
 		});
 	});
 	</script>
-</body>
-
-
 </html>
