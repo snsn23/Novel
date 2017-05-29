@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 
 
@@ -14,8 +14,8 @@
     <audio id="Sound01" src="BGM/k6.mp3" autoplay></audio>
 	<div id="canvas">
 		<div id="serif"></div>
-        <img id="ilust"></img>
-        <img id="ilust2"></img>
+        <img id="ilust">
+        <img id="ilust2">
 	</div>
     <audio src="BGM/k6.mp3" autoplay></audio>
 	<script src="/javascripts/jquery.min.js"></script>
@@ -23,20 +23,19 @@
 	// ここにシナリオを記入
         var SCENARIO = [
           { com: "BGM", val: "Sound01" }
-		, {com:"BG", val:"url(/image/sky002.jpg)"}
-		, {com: "S", val: "路線バス" }
+				, {com:"BG", val:"url(/image/sky002.jpg)"}
+				, {com: "S", val: "路線バス" }
         , { com: "I1", val: "" }
         , { com: "I3", val: "" }
-		, {com:"S",  val:"今日は会社の飲み会で遅くまで飲んでしまった。"}
-		, {com:"BG", val:"url(/image/sky002.jpg)"}
-		, {com:"S",  val:"明日も大事な案件があるので早く帰って準備をしないといけなかった。"}
-		, {com:"S",  val:"幸い路線バスの最終便が出ており、私は路線バスに乗って帰ることにした。"}
-		, {com:"S",  val:"すこし酔っていたせいかうつらうつらとしていると、降車ボタンが押された音にはっと目を覚ました。"}
-		, {com:"S",  val:"次は私の降りる停留所。いかんいかん乗り過ごしていたら大変な所だった。"}
-		, { com: "S", val: "私は降りると、ふと「誰もいないのに路線バスの運転手は大変だなぁ」と思った。" }
+				, {com:"S",  val:"今日は会社の飲み会で遅くまで飲んでしまった。"}
+				, {com:"BG", val:"url(/image/sky002.jpg)"}
+				, {com:"S",  val:"明日も大事な案件があるので早く帰って準備をしないといけなかった。"}
+				, {com:"S",  val:"幸い路線バスの最終便が出ており、私は路線バスに乗って帰ることにした。"}
+				, {com:"S",  val:"すこし酔っていたせいかうつらうつらとしていると、降車ボタンが押された音にはっと目を覚ました。"}
+				, {com:"S",  val:"次は私の降りる停留所。いかんいかん乗り過ごしていたら大変な所だった。"}
+				, { com: "S", val: "私は降りると、ふと「誰もいないのに路線バスの運転手は大変だなぁ」と思った。" }
         , { com: "I2", val: "" }
-		, {com:"S",  val:"少し歩いたところで私は一目散に家に駆けこんだ。"}
-
+				, {com:"S",  val:"少し歩いたところで私は一目散に家に駆けこんだ。"}
 	];
 
 	var Novel = {
@@ -106,4 +105,5 @@
 		});
 	});
 	</script>
+</body>
 </html>
